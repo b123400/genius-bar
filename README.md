@@ -1,7 +1,10 @@
 # genius-bar
-For tracking mobile device with slack
+API backend for tracking mobile device with slack
 
-The bot should be in #general. With the following commands. All respond should be public in #general
+- The bot should be in #general.
+- All respond should be public in #general
+- refs. https://oursky.quip.com/78TbAEKfztza
+
 
 Commands
 --
