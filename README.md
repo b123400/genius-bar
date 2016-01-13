@@ -12,16 +12,17 @@ Commands
 `/DeviceCheckout [device ID]`
 
 - Respond: “@username checkout device [device ID]”
+- Push "Device [device ID] check out by @username" to the oringal channel
 
 `/DeviceList`
 
 - Respond: a list of all Device ID | Device Name | Ownership
 
-`/DeviceReg [device ID] [Device Name]`
+`/DeviceReg [device ID]`
 
 - Respond: “[Device ID] / [Device Name] registered and own by @username”
 
-`/DeviceDereg [Device ID]`
+`/DeviceDereg [Device ID] [reason]`
 
 - Respond: “[Device ID] / [Device Name] de-registered by @username”
 
