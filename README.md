@@ -29,3 +29,43 @@ Commands
 `/DeviceAudit [Device iD]`
 
 - Respond: Show the list of last 20 register / deregister / own actions
+
+`/AuthToken`
+
+- Respond: Return an UUID that can be used in the client
+
+APIs
+--
+
+`/DeviceList` GET
+
+- Request:
+
+        { "auth_token": "1234" }
+
+- Respond: List of devices with name and serial number (optional)
+
+        [
+            {"id": "aaa", "serial_number":"bbb"},
+            {"id": "aaa", "serial_number":null},
+        ]
+
+`/DeviceEdit` POST
+
+- Request
+
+        {
+            "id": 1,
+            "serial_number": "aabbcc",
+            "auth_token": "1234"
+        }
+
+
+`/DeviceReg`
+
+- Request
+
+        {
+            "id": 1,
+            "auth_token": "1234"
+        }
