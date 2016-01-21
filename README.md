@@ -32,32 +32,42 @@ Commands
 
 `/AuthToken`
 
-- Respond: Return an UUID that can be used in the client
+- Respond: Return an Auth Token that can be used in the API
 
 APIs
 --
 
+## Authentication:
+All API requests require authenticate with the following header:
+
+    X-GENIUS-BAR-AUTH: uuid4
+
+## Endpoints:
+
 `/DeviceList` GET
 
-- Request:
+- Request
 
-        { "auth_token": "1234" }
+    No query parameter at all.
 
-- Respond: List of devices with name and serial number (optional)
+- Respond
+
+    List of device with name and serial number (optional)
 
         [
-            {"id": "aaa", "serial_number":"bbb"},
-            {"id": "aaa", "serial_number":null},
+            {"id": "iphone6-pink", "serial_number":"bbb"},
+            {"id": "iphone6s-black", "serial_number":null},
         ]
 
 `/DeviceEdit` POST
 
 - Request
 
+    Set the serial number of a device
+
         {
-            "id": 1,
+            "id": "iphone6-pink",
             "serial_number": "aabbcc",
-            "auth_token": "1234"
         }
 
 
@@ -65,7 +75,24 @@ APIs
 
 - Request
 
-        {
-            "id": 1,
-            "auth_token": "1234"
-        }
+    Send a list of device that to be registered
+
+        [{
+            "id": "iphone6-gold"
+        }]
+
+- Response
+
+    A list of affected devices.
+    
+        [{
+            "id": "iphone6-gold",
+            "serial_number": "aabbcc"
+        }]
+
+----
+
+## Serial number:
+Device's serial number can be checked with the following command on Mac:
+
+    system_profiler SPUSBDataType
